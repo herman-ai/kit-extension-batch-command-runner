@@ -16,28 +16,38 @@ class MyExtension(omni.ext.IExt):
     # this extension is located on filesystem.
     def on_startup(self, ext_id):
         print("[omni.hello.world] MyExtension startup")
+        # import time
+        # time.sleep(10)
+        self.runit()
 
-        self._count = 0
+        # self._count = 0
 
-        self._window = ui.Window("My Window", width=300, height=300)
-        with self._window.frame:
-            with ui.VStack():
-                label = ui.Label("")
+        # self._window = ui.Window("My Window", width=300, height=300)
+        # with self._window.frame:
+        #     with ui.VStack():
+        #         label = ui.Label("")
                 
 
-                def on_click():
-                    self._count += 1
-                    label.text = f"count: {self._count}"
+        #         def on_click():
+        #             self._count += 1
+        #             label.text = f"count: {self._count}"
 
-                def on_reset():
-                    self._count = 0
-                    label.text = "empty"
+        #         def on_reset():
+        #             self._count = 0
+        #             label.text = "empty"
 
-                on_reset()
+        #         on_reset()
 
-                with ui.HStack():
-                    ui.Button("Add", clicked_fn=on_click)
-                    ui.Button("Reset", clicked_fn=on_reset)
+        #         with ui.HStack():
+        #             ui.Button("Add", clicked_fn=on_click)
+        #             ui.Button("Reset", clicked_fn=on_reset)
 
     def on_shutdown(self):
         print("[omni.hello.world] MyExtension shutdown")
+
+
+    def runit(self):
+        # with open("/localhome/local-hsahota/Desktop/herman.py", "r") as f:
+        #     for line in f.readlines():
+        #         print(line)
+        exec(open("/localhome/local-hsahota/Desktop/kit-extension-batch-command-runner/user_commands.py").read())
